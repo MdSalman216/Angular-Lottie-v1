@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <ng-lottie
+      [options]="options"
+      (animationCreated)="animationCreated($event)"
+    ></ng-lottie>
+
+    <div>
+      <p>Speed: {{ animationSpeed }}x</p>
+      <div class="range-container">
+        <input
+          #range
+          type="range"
+          value="1"
+          min="0"
+          max="3"
+          step="0.2"
+          (change)="setSpeed(range.value)"
+        />
+      </div>
+      <button (click)="stop()">stop</button>
+      <button (click)="pause()">pause</button>
+      <button (click)="play()">play</button>
+    </div>
+  </body>
+</html>
